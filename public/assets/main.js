@@ -1,3 +1,5 @@
+import navigation from './navigation.js';
+
 document.addEventListener("DOMContentLoaded", (event) => {
     const searchField = document.querySelector('.sidebar input');
     const navigationElement = document.querySelector('.navigation');
@@ -36,6 +38,6 @@ const createNavigationItem = (item) => {
 
 const filteredNavigation = (searchTerm) => {
     return navigation.filter(item => {
-        return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return item.name.toLowerCase().includes(searchTerm.toLowerCase()) && item.name.toLowerCase() !== 'index';
     });
 }

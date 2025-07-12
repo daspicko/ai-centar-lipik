@@ -4,6 +4,10 @@
   "description": "Repository used for the projects and learning materials related to AI and Python programming at AI Center Lipik.",
   "main": "build-static-site.js",
   "type": "module",
+    "scripts": {
+        "build": "node build-static-site.js",
+        "deploy": "node build-static-site.js && sudo cp -r dist/* /var/www/html/"
+    },
   "dependencies": {
     "node-fetch": "^3.3.2",
     "node-html-parser": "^7.0.1"
