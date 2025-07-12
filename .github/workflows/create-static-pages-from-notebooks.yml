@@ -1,0 +1,40 @@
+name: Create Static Pages from Notebooks
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  export-and-build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requirements.txt
+
+      - name: Build static site
+        run: |
+          npm install
+          node build-static-site.js
+
+      - name: Push changes to static directory
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.DRUSTVENI_LUBRIKANT_EC2_PRIVATE_KEY }}" > ~/.ssh/id_rsa.pem
+          chmod 600 ~/.ssh/id_rsa.pem
+          ssh-keyscan "${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}" >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/id_rsa.pem "${{ vars.DRUSTVENI_LUBRIKANT_EC2_USER }}@${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}" 'rm -rf /home/ubuntu/domains/eda-ai-lipik.drustveni-lubrikant.hr/public_html/*'
+          scp -i ~/.ssh/id_rsa.pem -r dist/* "${{ vars.DRUSTVENI_LUBRIKANT_EC2_USER }}@${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}":/home/ubuntu/domains/eda-ai-lipik.drustveni-lubrikant.hr/public_html/
