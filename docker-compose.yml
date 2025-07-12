@@ -1,0 +1,6 @@
+services:
+  build-notebooks-website:
+    build: .
+    entrypoint: node build-static-site.js
+    volumes:
+      - .:/app

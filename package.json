@@ -5,8 +5,8 @@
   "main": "build-static-site.js",
   "type": "module",
     "scripts": {
-        "build": "node build-static-site.js",
-        "deploy": "node build-static-site.js && sudo cp -r dist/* /var/www/html/"
+        "build": "docker compose up --build && docker compose down && docker compose rm -f",
+        "deploy": "npm run build && sudo cp -r dist/* /var/www/html/"
     },
   "dependencies": {
     "node-fetch": "^3.3.2",
