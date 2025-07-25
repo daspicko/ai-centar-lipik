@@ -21,7 +21,7 @@ const notebooks = allIpynbFiles.filter(f => !f.includes('ipynb_checkpoints')).ma
 
 // Create the dist directory if it doesn't exist and export the notebooks as HTML
 for (const notebook of notebooks) {
-    execSync(`jupyter nbconvert --to html --output-dir=dist/${notebook.location} --execute ${notebook.path}`);
+    execSync(`.venv/bin/jupyter-nbconvert --to html --output-dir=dist/${notebook.location} --execute ${notebook.path}`);
 }
 
 // Copy public assets to dist
