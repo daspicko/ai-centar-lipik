@@ -18,13 +18,12 @@ jobs:
       - name: Install create .venv
         run: |
           python3 -m venv .venv
-          source .venv/bin/activate
-          pip install --upgrade pip
+          .venv/bin/pip3 install --upgrade pip
 
       - name: Install dependencies
         run: |
           npm install
-          pip3 install -r requirements.txt
+          .venv/bin/pip3 install -r requirements.txt
 
       - name: Build static site
         run: npm run build
