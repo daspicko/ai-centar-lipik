@@ -15,9 +15,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install python
-        run: sudo apt install gcc musl-dev linux-headers python3 python3-dev py3-pip
-
       - name: Install create .venv
         run: |
           python3 -m venv .venv
