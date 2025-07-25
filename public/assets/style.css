@@ -40,3 +40,10 @@
     padding: 2px;
     background-color: blue;
 }
+.jp-Notebook {
+    padding: 0 !important;
+}
+/* Override Jupyter Nodebook styles */
+body {
+    margin: 0 !important;
+}
