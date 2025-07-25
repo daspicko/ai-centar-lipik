@@ -1,0 +1,101 @@
+TecajID,Naziv_Tecaja,Razina,Trajanje_Sati,Cijena_USD
+5015,Strojno učenje osnove,Srednji,35.6,88.24
+5013,Data Storytelling,Srednji,46.0,182.1
+5082,Strojno učenje osnove,Srednji,26.0,70.64
+5043,Napredni SQL,srednji,31.8,126.97
+5064,Strojno učenje osnove,napredni,-10.0,20.0
+5079,Data Storytelling,Srednji,25.7,
+5005,Statistika za Data Science,Početni,,0.01
+5041,Vizualizacija podataka,Početni,,183.15
+5081,Vizualizacija podataka,početni,31.5,136.03
+5049,Uvod u Python,Početni,29.3,126.87
+5089,Cloud Computing,Srednji,19.1,20.0
+5058,Cloud Computing,Početni,46.6,134.59
+5092,Uvod u Python,Srednji,23.0,153.46
+5004,Statistika za Data Science,srednji,42.2,44.88
+5016,Statistika za Data Science,Napredni,21.9,31.93
+5063,Data Storytelling,Početni,41.2,20.0
+5037,Excel za analizu,Srednji,,0.0
+5047,Cloud Computing,Srednji,25.6,109.4
+5078,Vizualizacija podataka,početni,,112.62
+5035,Napredni SQL,ADVANCED,26.0,20.0
+5055,Vizualizacija podataka,srednji,23.5,139.21
+5076,Napredni SQL,Početni,1.0,111.09
+5066,Data Storytelling,srednji,20.9,20.0
+5008,Cloud Computing,Početni,25.1,100.09
+5075,Vizualizacija podataka,Srednji,59.2,28.56
+5014,Vizualizacija podataka,Srednji,46.8,137.68
+5030,Uvod u Python,Početni,34.9,67.36
+5022,Statistika za Data Science,Srednji,13.6,52.81
+5096,Napredni SQL,Srednji,44.9,91.23
+5036,Uvod u Python,Srednji,26.8,
+5019,Cloud Computing,napredni,27.5,187.38
+5003,Excel za analizu,početni,34.4,90.85
+5093,Vizualizacija podataka,Početni,22.4,35.46
+5045,Cloud Computing,Početni,14.6,
+5068,Strojno učenje osnove,Srednji,30.6,81.0
+5065,Excel za analizu,Početni,0.0,116.65
+5002,Data Storytelling,Napredni,15.2,91.56
+5071,Excel za analizu,srednji,38.0,155.64
+5067,Statistika za Data Science,Početni,28.1,
+5090,Vizualizacija podataka,početni,37.6,77.63
+5031,Data Storytelling,Srednji,,164.65
+5029,Statistika za Data Science,Srednji,47.7,117.5
+5100,Cloud Computing,Srednji,29.6,82.7
+5040,Statistika za Data Science,BEGINNER,19.4,
+5034,Excel za analizu,napredni,30.7,108.06
+5023,Strojno učenje osnove,Srednji,40.0,68.33
+5011,Napredni SQL,Početni,9999.0,83.07
+5025,Uvod u Python,Početni,,66.03
+5091,Vizualizacija podataka,ADVANCED,39.5,53.62
+5053,Uvod u Python,Srednji,20.1,123.02
+5060,Uvod u Python,Početni,27.8,108.08
+5080,Uvod u Python,Početni,38.8,154.11
+5084,Strojno učenje osnove,Početni,22.1,84.25
+5046,Excel za analizu,srednji,16.1,134.11
+5073,Strojno učenje osnove,srednji,31.8,58.03
+5027,Excel za analizu,Napredni,21.4,139.85
+5042,Uvod u Python,Srednji,31.4,110.53
+5048,Cloud Computing,Srednji,21.0,133.62
+5012,Vizualizacija podataka,Srednji,9.8,179.0
+5032,Data Storytelling,početni,35.6,
+5052,Vizualizacija podataka,Početni,38.1,115.79
+5069,Uvod u Python,Početni,31.5,63.93
+5028,Statistika za Data Science,Početni,17.9,122.54
+5056,Napredni SQL,Napredni,19.8,196.06
+5018,Statistika za Data Science,Srednji,39.5,2000.0
+5059,Excel za analizu,INTERMED,30.1,180.31
+5033,Data Storytelling,Početni,30.6,
+5095,Uvod u Python,Početni,42.7,100.04
+5057,Excel za analizu,Početni,,106.91
+5070,Napredni SQL,Srednji,31.1,92.61
+5097,Cloud Computing,BEGINNER,500.0,183.58
+5072,Statistika za Data Science,Početni,24.0,111.92
+5010,Data Storytelling,Početni,24.3,224.47
+5077,Strojno učenje osnove,Napredni,,23.0
+5024,Cloud Computing,Srednji,26.9,133.22
+5099,Napredni SQL,početni,29.4,92.78
+5051,Napredni SQL,Početni,43.9,21.5
+5017,Strojno učenje osnove,Početni,37.5,123.9
+5006,Strojno učenje osnove,Početni,21.4,95.58
+5062,Uvod u Python,Početni,35.3,130.79
+5074,Excel za analizu,početni,22.4,167.72
+5083,Cloud Computing,Napredni,22.5,61.05
+5044,Strojno učenje osnove,Napredni,36.4,144.73
+5061,Vizualizacija podataka,Početni,34.8,55.58
+5098,Strojno učenje osnove,Srednji,40.1,
+5038,Cloud Computing,Srednji,40.8,165.02
+5026,Vizualizacija podataka,Početni,19.7,58.79
+5001,Vizualizacija podataka,Srednji,40.2,185.49
+5009,Cloud Computing,Srednji,35.2,104.36
+5007,Strojno učenje osnove,Srednji,20.6,82.92
+5087,Uvod u Python,Početni,,5.0
+5088,Cloud Computing,početni,28.9,
+5020,Data Storytelling,Srednji,30.4,52.5
+5039,Uvod u Python,Srednji,11.9,
+5094,Excel za analizu,Početni,31.8,121.47
+5050,Uvod u Python,srednji,34.9,146.22
+5021,Cloud Computing,Srednji,42.3,10000.0
+5086,Data Storytelling,Početni,28.3,180.95
+5085,Cloud Computing,Početni,,193.78
+5054,Uvod u Python,Srednji,26.3,96.36
