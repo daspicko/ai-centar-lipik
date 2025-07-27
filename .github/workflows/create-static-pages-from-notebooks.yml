@@ -28,11 +28,13 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Push changes to static directory
+      - name: Push changes to static page repository
         run: |
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.DRUSTVENI_LUBRIKANT_EC2_PRIVATE_KEY }}" > ~/.ssh/id_rsa.pem
-          chmod 600 ~/.ssh/id_rsa.pem
-          ssh-keyscan "${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}" >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa.pem "${{ vars.DRUSTVENI_LUBRIKANT_EC2_USER }}@${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}" 'rm -rf /home/ubuntu/domains/eda-ai-lipik.drustveni-lubrikant.hr/public_html/*'
-          scp -i ~/.ssh/id_rsa.pem -r dist/* "${{ vars.DRUSTVENI_LUBRIKANT_EC2_USER }}@${{ vars.DRUSTVENI_LUBRIKANT_EC2_IP }}":/home/ubuntu/domains/eda-ai-lipik.drustveni-lubrikant.hr/public_html/
+          cd dist
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email ""
+          git add .
+          git commit -m "Update static pages"
+          git remote add target "https://${{ secrets.TARGET_REPOSITORY_TOKEN }}@github.com/${{ vars.TARGET_REPOSITORY }}"
+          git push target main

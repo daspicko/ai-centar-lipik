@@ -1,0 +1,48 @@
+:root {
+    --menu-item-padding-step: 1rem;
+    --menu-item-padding-initial: 0.25rem;
+}
+
+.menu-item-depth {
+    font-size: smaller;
+    img {
+        width: 16px;
+    }
+}
+
+.menu-item-depth-0 {
+    padding-left: calc(var(--menu-item-padding-step) * 0 + var(--menu-item-padding-initial));
+}
+
+.menu-item-depth-1 {
+    padding-left: calc(var(--menu-item-padding-step) * 1);
+}
+
+.menu-item-depth-2 {
+    padding-left: calc(var(--menu-item-padding-step) * 2);
+}
+
+.menu-item-depth-3 {
+    padding-left: calc(var(--menu-item-padding-step) * 3);
+}
+
+.menu-item-depth-4 {
+    padding-left: calc(var(--menu-item-padding-step) * 4);
+}
+
+.menu-item-depth-5 {
+    padding-left: calc(var(--menu-item-padding-step) * 5);
+}
+
+.menu-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#notebook-viewer {
+    border: none;
+    width: 100%;
+    height: 99vh;
+}
