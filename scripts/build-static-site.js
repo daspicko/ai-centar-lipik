@@ -105,18 +105,27 @@ const addDownloadButton = (child) => {
     if (!child || !child.downloadLink) {
         return '';
     } else {
-        return `<a href="${child.downloadLink}" class="btn btn-sm download-button" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/download.svg" alt="Download icon"/></a>`;
+        return `<a href="${child.downloadLink}" class="btn btn-sm download-button" target="_blank" rel="noopener noreferrer"><img src="assets/icons/download.svg" alt="Download icon"/></a>`;
     }
 }
 
 const addIcon = (child) => {
     const icon = addDataUrlAttribute(child) ? 'file.svg' : 'folder.svg';
-    return `<img src="/assets/icons/${icon}" alt="${child.name} icon"/>`;
+    return `<img src="assets/icons/${icon}" alt="${child.name} icon"/>`;
 }
 
 const writeChildrenToMenu = (children, depth) => {
     children.forEach(child => {
-        templateNavigation.innerHTML += `<li class="list-group-item menu-item-depth menu-item-depth-${depth}" ${addDataUrlAttribute(child)}>${addIcon(child)} ${child.name} ${addDownloadButton(child)}</li>`;
+        templateNavigation.innerHTML += `
+<li class="list-group-item">
+    <div class="list-group-item-link menu-item-depth menu-item-depth-${depth}" ${addDataUrlAttribute(child)}>
+        ${addIcon(child)} ${child.name}
+    </div>
+    <div class="list-group-item-download">
+       ${addDownloadButton(child)}
+    </div>
+</li>
+`;
         if (child.children) {
             writeChildrenToMenu(child.children, depth + 1);
         }

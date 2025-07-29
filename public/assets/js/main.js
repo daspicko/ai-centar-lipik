@@ -1,20 +1,20 @@
 const removeSelection = () => {
-    document.querySelectorAll("li.list-group-item[data-url]").forEach(li => li.classList.remove("active"));
+    document.querySelectorAll("#sidebar-navigation li").forEach(li => li.classList.remove("active"));
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelectorAll("li.list-group-item[data-url]").forEach(li => {
-        const url = li.getAttribute("data-url");
+    document.querySelectorAll("div.list-group-item-link[data-url]").forEach(div => {
+        const url = div.getAttribute("data-url");
 
         if (url) {
-            li.addEventListener("click", (e) => {
+            div.addEventListener("click", (e) => {
                 e.preventDefault();
                 removeSelection();
                 const notebookViewer = document.getElementById("notebook-viewer");
 
                 history.pushState({}, '', url);
                 notebookViewer.setAttribute("src", url);
-                li.classList.add("active");
+                div.parentElement.classList.add("active");
             });
         }
     });
