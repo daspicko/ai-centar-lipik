@@ -41,6 +41,13 @@
     z-index: 1000;
 }
 
+.download-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
 #notebook-viewer {
     border: none;
     width: 100%;

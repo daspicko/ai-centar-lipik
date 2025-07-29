@@ -13,7 +13,7 @@ def clean_categorical_title(df, column_name):
 
 
 def update_missing_textual_values(df):
-    if df == None:
+    if df.empty:
         return
     for column in df.columns:
         if isinstance(df[column][0], str):
