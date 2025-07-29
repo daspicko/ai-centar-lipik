@@ -4,12 +4,15 @@ on:
     branches:
       - main
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  export-and-build:
+  export-notebooks-and-build-static-pages:
     runs-on: ubuntu-latest
-    container:
-      image: node:22
-      options: --user node
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,30 +21,16 @@ jobs:
         with:
           node-version: 22
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install create .venv
-        run: |
-          python3 -m venv .venv
-          .venv/bin/pip3 install --upgrade pip
-
-      - name: Install dependencies
-        run: |
-          npm install
-          .venv/bin/pip3 install -r requirements.txt
-
-      - name: Build static site
+      - name: Build static pages from notebooks
         run: npm run build
 
-      - name: Push changes to static page repository
-        run: |
-          cd dist
-          git init
-          git config user.name "GitHub Actions"
-          git config user.email ""
-          git add .
-          git commit -m "Update static pages"
-          git remote add target "https://${{ secrets.TARGET_REPOSITORY_TOKEN }}@github.com/${{ vars.TARGET_REPOSITORY }}"
-          git push target main
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist/**/*'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
