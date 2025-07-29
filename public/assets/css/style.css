@@ -11,7 +11,7 @@
 }
 
 .menu-item-depth-0 {
-    padding-left: calc(var(--menu-item-padding-step) * 0 + var(--menu-item-padding-initial));
+    padding-left: 0;
 }
 
 .menu-item-depth-1 {
