@@ -36,26 +36,36 @@ const navigation = [];
 const addLinkToNavigation = (notebook) => {
     const parentNames = notebook.link.split('/').filter(i => i && !i.endsWith('.html'));
 
-    let currentLevel = navigation;
-    for (let i = 0; i < parentNames.length; i++) {
-        const parentName = parentNames[i];
+    if (parentNames.length === 0) { // No parent directories, add directly to navigation
+        navigation.push({
+            name: notebook.name,
+            link: notebook.link,
+            downloadLink: notebook.downloadLink,
+            children: []
+        });
+    } else { // Recursively add to the correct parent directory
+        let currentLevel = navigation;
+        for (let i = 0; i < parentNames.length; i++) {
+            const parentName = parentNames[i];
 
-        let parent = currentLevel.find(item => item.name === parentName);
-        if (!parent) {
-            currentLevel.push({
-                name: parentName,
-                children: []
-            });
-        }
+            let parent = currentLevel.find(item => item.name === parentName);
+            if (!parent) {
+                currentLevel.push({
+                    name: parentName,
+                    children: []
+                });
+            }
 
-        currentLevel = currentLevel.find(item => item.name === parentName).children;
+            currentLevel = currentLevel.find(item => item.name === parentName).children;
 
-        if (i === parentNames.length - 1 && currentLevel) {
-            currentLevel.push({
-                name: notebook.name,
-                link: notebook.link,
-                children: []
-            });
+            if (i === parentNames.length - 1 && currentLevel) {
+                currentLevel.push({
+                    name: notebook.name,
+                    link: notebook.link,
+                    downloadLink: notebook.downloadLink,
+                    children: []
+                });
+            }
         }
     }
 }
