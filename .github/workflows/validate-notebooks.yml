@@ -1,7 +1,8 @@
 name: Validate Jupyter Notebooks
 
 on:
-  workflow_run:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   validate-notebooks:
