@@ -15,13 +15,15 @@ const notebooks = allIpynbFiles.filter(f => !f.includes('ipynb_checkpoints')).ma
         path: notebook,
         name: notebook.substring(notebook.lastIndexOf('/') + 1).replace('.ipynb', ''),
         link: '/' + notebook.replace('./notebooks/', '').replace('.ipynb', '.html'),
+        downloadLink: '/' + notebook.replace('./notebooks/', '').replace('.ipynb', '.pdf'),
         location: notebook.substring(0, notebook.lastIndexOf('/')).replace('./notebooks', '').substring(1)
     };
 }).sort((a, b) => a.link.split('/') > b.link.split('/'));
 
 // Create the dist directory if it doesn't exist and export the notebooks as HTML
 for (const notebook of notebooks) {
-    execSync(`.venv/bin/jupyter-nbconvert --to html --output-dir=dist/${notebook.location} --execute ${notebook.path}`);
+    execSync(`jupyter-nbconvert ${notebook.path} --to html --output-dir=dist/${notebook.location} --execute `);
+    execSync(`jupyter-nbconvert ${notebook.path} --to pdf --output-dir=dist/${notebook.location}`);
 }
 
 // Copy public assets to dist
@@ -83,6 +85,14 @@ const addDataUrlAttribute = (child) => {
     }
 }
 
+const addDownloadButton = (child) => {
+    if (!child || !child.downloadLink) {
+        return '';
+    } else {
+        return `<a href="${child.downloadLink}" class="btn btn-sm download-button" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/download.svg" alt="Download icon"/></a>`;
+    }
+}
+
 const addIcon = (child) => {
     const icon = addDataUrlAttribute(child) ? 'file.svg' : 'folder.svg';
     return `<img src="/assets/icons/${icon}" alt="${child.name} icon"/>`;
@@ -90,7 +100,7 @@ const addIcon = (child) => {
 
 const writeChildrenToMenu = (children, depth) => {
     children.forEach(child => {
-        templateNavigation.innerHTML += `<li class="list-group-item menu-item-depth menu-item-depth-${depth}" ${addDataUrlAttribute(child)}>${addIcon(child)} ${child.name}</li>`;
+        templateNavigation.innerHTML += `<li class="list-group-item menu-item-depth menu-item-depth-${depth}" ${addDataUrlAttribute(child)}>${addIcon(child)} ${child.name} ${addDownloadButton(child)}</li>`;
         if (child.children) {
             writeChildrenToMenu(child.children, depth + 1);
         }

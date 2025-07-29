@@ -7,6 +7,9 @@ on:
 jobs:
   export-and-build:
     runs-on: ubuntu-latest
+    container:
+      image: node:22
+      options: --user node
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
