@@ -4,10 +4,10 @@
   "description": "Repository used for the projects and learning materials related to AI and Python programming at AI Center Lipik.",
   "main": "/scripts/build-static-site.js",
   "type": "module",
-    "scripts": {
-      "build": "npm install && docker compose up image-builder && docker compose down && docker compose rm",
-      "validate": "npm install && docker compose up validation-runner && docker compose down && docker compose rm"
-    },
+  "scripts": {
+    "build": "npm install && docker compose up image-builder && docker compose down && docker compose rm",
+    "validate": "npm install && docker compose up validation-runner && docker compose down && docker compose rm"
+  },
   "dependencies": {
     "node-fetch": "^3.3.2",
     "node-html-parser": "^7.0.1"
