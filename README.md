@@ -3,7 +3,7 @@ Repository used for the projects and learning materials related to AI and Python
 
 ## Exploratory Data Analysis (EDA) - Static site
 Repository to store Jupyter notebooks and other python AI related code.
-To see HTML notebooks Static Site please visit [EDA AI Lipik](https://eda-ai-lipik.xn--drutveni-lubrikant-ird.hr/).
+To see HTML notebooks Static Site please visit [EDA AI Lipik](https://daspicko.github.io/ai-centar-lipik).
 
 ## Open Data
 - https://www.data.gov.hr/

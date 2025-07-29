@@ -4,4 +4,4 @@ services:
     image: jupyter-notebook-converter:latest
     volumes:
       - .:/app
-    command: node /app/build-static-site.js
+    command: node /app/scripts/build-static-site.js
