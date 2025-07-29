@@ -1,7 +1,7 @@
-name: Create Static Pages from Notebooks
+name: Validate Jupyter Notebooks
+
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_run:
 
 jobs:
   validate-notebooks:
