@@ -1,11 +1,15 @@
 name: Create Static Pages from Notebooks
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -30,7 +34,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/**/*'
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
