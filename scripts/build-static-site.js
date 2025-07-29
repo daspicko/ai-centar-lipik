@@ -97,7 +97,7 @@ const addDataUrlAttribute = (child) => {
     if (!child || !child.link) {
         return '';
     } else {
-        return `data-url="${child.link}"`;
+        return `data-url="/ai-centar-lipik${child.link}"`;
     }
 }
 
@@ -105,7 +105,7 @@ const addDownloadButton = (child) => {
     if (!child || !child.downloadLink) {
         return '';
     } else {
-        return `<a href="${child.downloadLink}" class="btn btn-sm download-button" target="_blank" rel="noopener noreferrer"><img src="assets/icons/download.svg" alt="Download icon"/></a>`;
+        return `<a href="/ai-centar-lipik${child.downloadLink}" class="btn btn-sm download-button" target="_blank" rel="noopener noreferrer"><img src="assets/icons/download.svg" alt="Download icon"/></a>`;
     }
 }
 
