@@ -20,9 +20,10 @@ const notebooks = allIpynbFiles.filter(f => !f.includes('ipynb_checkpoints')).ma
     };
 }).sort((a, b) => a.link.split('/') > b.link.split('/'));
 
-// Create the dist directory if it doesn't exist and export the notebooks as HTML
+// Convert notebooks to HTML and PDF - Conversion is done sequentially to avoid issues with ports
 for (const notebook of notebooks) {
-    execSync(`jupyter-nbconvert ${notebook.path} --to html --output-dir=dist/${notebook.location} --execute `);
+    execSync(`jupyter execute ${notebook.path}`);
+    execSync(`jupyter-nbconvert ${notebook.path} --to html --output-dir=dist/${notebook.location}`);
     execSync(`jupyter-nbconvert ${notebook.path} --to pdf --output-dir=dist/${notebook.location}`);
 }
 

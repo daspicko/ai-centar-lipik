@@ -5,9 +5,8 @@
   "main": "/scripts/build-static-site.js",
   "type": "module",
     "scripts": {
-      "build": "docker compose up && docker compose down && docker compose rm",
-      "validate": "node scripts/validate.js",
-      "deploy:local": "npm run build && sudo cp -r dist/* /var/www/html/"
+      "build": "docker compose up image-builder && docker compose down && docker compose rm",
+      "validate": "docker compose up validation-runner && docker compose down && docker compose rm"
     },
   "dependencies": {
     "node-fetch": "^3.3.2",

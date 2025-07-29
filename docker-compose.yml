@@ -5,3 +5,9 @@ services:
     volumes:
       - .:/app
     command: node /app/scripts/build-static-site.js
+  validation-runner:
+    build: .
+    image: jupyter-notebook-converter:latest
+    volumes:
+      - .:/app
+    command: node /app/scripts/validate.js
