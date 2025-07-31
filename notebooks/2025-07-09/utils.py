@@ -1,9 +1,3 @@
-def one():
-    return "1"
-
-def two():
-    return "2"
-
 def apply_iqr_capping(series):
     Q1 = series.quantile(0.25)
     Q3 = series.quantile(0.75)
