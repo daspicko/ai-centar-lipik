@@ -5,8 +5,8 @@
   "main": "/scripts/build-static-site.js",
   "type": "module",
   "scripts": {
-    "build": "npm install && docker compose up image-builder && docker compose down && docker compose rm",
-    "validate": "npm install && docker compose up validation-runner && docker compose down && docker compose rm",
+    "build": "npm install && docker compose up --exit-code-from image-builder && docker compose down && docker compose rm",
+    "validate": "npm install && docker compose up --exit-code-from validation-runner && docker compose down && docker compose rm",
     "local:build": "node scripts/build-static-site.js && sudo cp -r dist/* /var/www/html/ai-centar-lipik"
   },
   "dependencies": {
