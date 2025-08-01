@@ -2,7 +2,16 @@ name: Validate Jupyter Notebooks
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+    paths:
+      - datasets/**
+      - notebooks/**
+      - requirements.txt
 
 jobs:
   validate-notebooks:
