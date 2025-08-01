@@ -23,9 +23,8 @@ const notebooks = allIpynbFiles.filter(f => !f.includes('ipynb_checkpoints')).ma
 // Convert notebooks to HTML and PDF - Conversion is done sequentially to avoid issues with ports
 for (const notebook of notebooks) {
     try {
-        execSync(`jupyter execute ${notebook.path}`);
-        execSync(`jupyter-nbconvert ${notebook.path} --to html --output-dir=dist/${notebook.location}`);
-        execSync(`jupyter-nbconvert ${notebook.path} --to pdf --output-dir=dist/${notebook.location}`);
+        execSync(`jupyter-nbconvert ${notebook.path} --to html --output-dir=dist/${notebook.location} --execute`);
+        execSync(`jupyter-nbconvert ${notebook.path} --to pdf --output-dir=dist/${notebook.location} --execute`);
     } catch(error) {
         console.error(`Error processing notebook ${notebook.name}:`, error.message);
         process.exit(1);
