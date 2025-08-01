@@ -1,7 +1,9 @@
 name: Build Jupyter Notebook Converter Base Image
 
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - requirements.txt
 
 jobs:
   build-and-push-image:
