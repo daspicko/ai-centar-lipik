@@ -5,9 +5,9 @@
   "main": "/scripts/build-static-site.js",
   "type": "module",
   "scripts": {
-    "build": "npm install && docker compose up --exit-code-from image-builder && docker compose down && docker compose rm",
-    "validate": "npm install && docker compose up --exit-code-from validation-runner && docker compose down && docker compose rm",
-    "local:build": "node scripts/build-static-site.js && sudo cp -r dist/* /var/www/html/ai-centar-lipik"
+    "build": "docker build -t jnc-process . && docker run --rm -v .:/app jnc-process node /app/scripts/build-static-site.js",
+    "validate": "docker build -t jnc-process . && docker run --rm jnc-process node /app/scripts/validate.js",
+    "local:build": "npm install && node scripts/build-static-site.js && sudo cp -r dist/* /var/www/html/ai-centar-lipik"
   },
   "dependencies": {
     "node-fetch": "^3.3.2",
