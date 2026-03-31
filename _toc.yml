@@ -8,7 +8,16 @@ default:
 
 chapters:
   - file: content/01_python/index.md
+    sections:
+      - file: content/01_python/00_basic/index.md
+      - file: content/01_python/01_advanced/index.md
+
   - file: content/02_podatkovna_znanost/index.md
+    sections:
+      - file: content/02_podatkovna_znanost/00_pandas/index.md
+      - file: content/02_podatkovna_znanost/01_matplotlib/index.md
+      - file: content/02_podatkovna_znanost/03_seaborn/index.md
+
   - file: content/03_strojno_ucenje/index.md
     sections:
       - file: content/03_strojno_ucenje/035_vjezbe/index.md
@@ -78,3 +87,7 @@ chapters:
       - file: content/03_strojno_ucenje/0321_zavrsni_zadatak/index.md
         sections:
           - file: content/03_strojno_ucenje/0321_zavrsni_zadatak/0321_zavrsni_zadatak.ipynb
+
+  - file: content/04_computer_vision/index.md
+    sections:
+      - file: content/04_computer_vision/00_opencv/index.md
